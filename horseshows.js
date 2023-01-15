@@ -605,6 +605,6 @@ app.use((err, req, res, _next) => {
 });
 
 // Listener
-app.listen(port, host, () => {
+app.listen(port, () => {
   console.log(`Horseshows is listening on port ${port} of ${host}!`);
 });
