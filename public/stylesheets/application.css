@@ -1,0 +1,131 @@
+body {
+  background-color: rgb(235,233,233);
+  color: #3f3f3f;
+  font: normal 20px "PT Sans", Helvetica, Arial, sans-serif;
+}
+
+body > header {
+  margin: 0 auto;
+  width: 50%;
+  /* max-width: 1500px; */
+  /* padding: 55px 0 35px; */
+}
+body > header .headings {
+  text-align: center;
+}
+body > header img{
+  width: 40%;
+  height: 40%;
+}
+body > header a{
+  padding: 10px;
+  margin: 5px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: black;
+  border: 2px solid black;
+  display: inline-block;
+} 
+
+body > main {
+  text-align: center;
+  padding: 10px;
+}
+body > main li {
+  padding: 10px;
+  /* border: 1px solid black; */
+}
+body > main h1{
+  font-size: 32px ;
+  font-weight: normal;
+  padding: 10px;
+}
+body > main form{
+  padding-top: 15px;
+  box-sizing: border-box;
+}
+
+body > main form dd {
+  padding: 5px;
+  margin: 5px;
+  margin-bottom: 15px;
+}
+.add-scratch-buttons {
+  display: inline-block;
+  padding-top: 30px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid black; */
+}
+body > main a{
+  box-sizing: border-box;
+  display: block;
+  border: 1px solid black;
+  padding: 25px 50px;
+  text-decoration: none;
+}
+.email {
+  border: none;
+
+}
+
+input[type="radio"]{
+  border: 0px;
+  width: 20px;
+  height: 20px;
+  align-items: flex-start;
+}
+input[type="input"], input[type="password"], input[type="email"]{
+  line-height: 24px;
+  padding-left: 8px;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+input[type="submit"]{
+  padding: 12px;
+  font-size: 20px;
+  box-sizing: border-box;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  /* line-height: 100 px;s */
+}
+textarea{
+  width: 60%;
+}
+
+select {
+  padding: 12px;
+  font-size: 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  /* line-height: 25px; */
+}
+
+table {
+  margin: 0 auto;
+}
+table th{
+  font: 30px;
+  text-decoration: underline;
+}
+table td{
+  padding: 10px 30px;
+}
+
+.flash p {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.flash.error {
+  background-color: #ffcfbf;
+  color: #ff6633;
+}
+
+.flash.success {
+  background-color: #cbf2e5;
+  color: #33cc99;
+}

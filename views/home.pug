@@ -1,0 +1,12 @@
+extends layout 
+block headerLinks 
+  .actions
+    a(href="/classes") Classes
+    if !signedIn
+      a(href="/signin") Sign In
+    if username === 'admin'
+      a(href="/add-class") Add Class
+  if signedIn
+    p Signed in as #{username} 
+    form(action = `/signout` method="post")
+      input(type="submit" id="signout" value="Sign Out")

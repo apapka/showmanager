@@ -1,0 +1,44 @@
+extends layout
+block headerLinks
+  .actions
+    a(href="/") Home
+    a(href="/entershow") Enter Show
+    a(href="/contactus") Contact Us
+
+
+block main 
+  h1 Hosting a show? 
+  p Our mission is to provide a cost-effective high quality service to show managers and their clientele. 
+  p Reach out to us directly to learn what options we may have for you: 
+
+  p <br>262-527-7975
+  a(class="email" href="emailto:hostashow@aphorseshows.com") hostashow@aphorseshows.com
+
+  h1 Feedback and suggestions:
+  form(class="feedback-form" action = `/add-scratch` method="post")
+    dl 
+      dt 
+        label(for="name") Your Name: 
+      dd 
+        input(type="input"
+              id="name" 
+              name="name" 
+              value=horse_number)
+      dt  
+        label(for="email") Your Email: 
+      dd 
+        input(type="email"
+              id="email"
+              name="email"
+              value=email)
+      dt 
+        label(for="message") Message 
+      dd 
+        textarea(id="message" 
+              name="message" 
+              placeholder="message" 
+              value=message)
+
+
+    fieldset.actions 
+      input(type="submit" value="Submit")

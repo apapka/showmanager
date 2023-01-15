@@ -1,0 +1,49 @@
+extends layout 
+
+block main 
+  h1 Classes
+  if classes === undefined || classes.length === 0
+    p "Classes not Found"
+  if !signedIn || username !== 'admin'
+    table 
+      tr 
+        th Class 
+      each klass in classes 
+        tr 
+          td(colspan="2")
+            a(href=`/classes/${klass.id}`) #{klass.id}. $#{klass.prize_money}  #{klass.name}
+      tr
+        if (pageNumber - 1) >=0 
+          td 
+            a(href=`/classes?page=${Number(pageNumber)-1}`) Previous Page
+        td
+          a(href=`/classes?page=${Number(pageNumber)+1}`) Next Page            
+  if username === 'admin' && signedIn
+    table 
+      tr 
+        th Class 
+      each klass in classes 
+        tr 
+          td
+            a(href=`/classes/${klass.id}`) #{klass.id}. $#{klass.prize_money} #{klass.name} 
+          td  
+            a(href=`/classes/${klass.id}/edit`) Edit
+          td
+            a(href=`/classes/${klass.id}/destroy`) Delete
+      tr
+        if (pageNumber - 1) >=0 
+          td 
+            a(href=`/classes?page=${Number(pageNumber)-1}`) Previous Page
+        td
+          a(href=`/classes?page=${Number(pageNumber)+1}`) Next Page
+block headerLinks
+  .actions
+    a(href="/") Home
+    if !signedIn
+      a(href="/signin") Sign In
+    if username === 'admin'
+      a(href="/add-class") Add Class
+  if signedIn 
+    p Signed in as #{username} 
+    form(action = `/signout` method="post")
+      input(type="submit" id="signout" value="Sign Out")

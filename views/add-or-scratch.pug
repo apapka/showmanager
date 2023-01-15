@@ -1,0 +1,20 @@
+extends layout 
+
+block main 
+  div(class="add-scratch-buttons")
+    a(href="/add") Add to Class
+    a(href="/scratch") Scratch from Class
+    a(href="/edit") Modify Entry
+
+
+block headerLinks
+  .actions
+    a(href="/") Home
+    a(href="/classes") Classes
+    if username === 'admin'
+      a(href="manager-home") Manager Home
+
+
+  p Signed in as #{username} 
+  form(action = `/signout` method="post")
+    input(type="submit" id="signout" value="Sign Out")

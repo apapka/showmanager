@@ -1,0 +1,41 @@
+extends layout 
+
+block main 
+  h1 #{klass.id}. $#{klass.prize_money} #{klass.name}
+  form(action = `/classes/${klass.id}/entries/add` method="post")
+    dl 
+
+      dt 
+        label(for="horse_number") Number: 
+      dd 
+        input(type="input"
+              id="horse_number" 
+              name="horse_number" 
+              placeholder="number" 
+              value=horse_number)
+
+      dt 
+        label(for="horse_name") Horse Name: 
+      dd 
+        input(type="input" 
+              id="horse_name" 
+              name="horse_name" 
+              placeholder="horse name" 
+              value=horse_name)
+
+      dt 
+        label(for="rider_name") Rider Name: 
+      dd 
+        input(type="input"
+              id="rider_name"
+              name="rider_name"
+              placeholder="rider name"
+              value=rider_name)
+    
+    fieldset.actions 
+      input(type="submit" value="Submit")
+      
+block headerLinks
+  .actions
+    a(href="/") Home
+    a(href="/classes") Classes

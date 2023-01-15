@@ -1,0 +1,36 @@
+extends layout 
+
+block main 
+  h1 Add Class
+  form(action = `#` method="post")
+    dl 
+      dt 
+        label(for="name") Class Name: 
+      dd 
+        input(type="input" 
+              id="class_name" 
+              name="class_name" 
+              placeholder="class name" 
+              value=class_name)
+
+      dt 
+        label(for="rider_name") Prize Money: 
+      dd 
+        input(type="input"
+              id="prize_money"
+              name="prize_money"
+              placeholder="prize money"
+              value=prize_money)
+
+    
+    fieldset.actions 
+      input(type="submit" value="Add Class")
+      
+block headerLinks
+  .actions
+    a(href="/") Home
+    a(href="/classes") Classes
+
+  p Signed in as #{username} 
+  form(action = `/signout` method="post")
+    input(type="submit" id="signout" value="Sign Out")

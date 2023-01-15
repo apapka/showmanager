@@ -1,0 +1,36 @@
+extends layout 
+
+block main 
+  h2 #{klass.id}. $#{klass.prize_money} #{klass.name}
+  h2 #{entry.horse_id}: #{entry.horse_name} ridden by #{entry.rider_name}
+  form(action = `/classes/${klass.id}/entries/${entry.id}/edit` method="post")
+    dl 
+      dt 
+        label(for="horse_name") Horse Name: 
+      dd 
+        input(type="input"
+              id="horse_name" 
+              name="horse_name" 
+              placeholder="horse name" 
+              value=horse_name)
+      dt 
+        label(for="prize_money") Rider Name
+      dd 
+        input(type="input"
+              id="rider_name" 
+              name="rider_name" 
+              placeholder="rider name" 
+              value=rider_name)
+
+    
+    fieldset.actions 
+      input(type="submit" value="Modify Entry")
+      
+block headerLinks
+  .actions
+    a(href="/") Home
+    a(href="/classes") Classes
+    a(href="/manager-home") Manager Home
+  p Signed in as #{username} 
+  form(action = `/signout` method="post")
+    input(type="submit" id="signout" value="Sign Out")

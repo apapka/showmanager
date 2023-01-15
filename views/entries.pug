@@ -1,0 +1,42 @@
+extends layout 
+
+block main 
+  h1 #{classId} #{className}
+  if entries === undefined || entries.length === 0
+    p "No entries found"
+  table 
+    tr 
+      th Number 
+      th Horse 
+      th Rider
+    each entry in entries
+      tr 
+        td #{entry.horse_id}
+        td #{entry.horse_name}
+        td #{entry.rider_name}
+        if signedIn 
+          td 
+            a(href=`/classes/${classId}/entries/${entry.id}/edit`) Edit
+          td  
+            a(href=`/classes/${classId}/entries/${entry.id}/destroy`) Scratch
+    if (pageNumber - 1) >= 0
+      td  
+        a(href=`/classes/${classId}?page=${Number(pageNumber) - 1}`) Previous Page
+    td 
+      a(href=`/classes/${classId}?page=${Number(pageNumber) + 1}`) Next Page
+    if signedIn
+      tr 
+        td(colspan=5)
+          a(href=`/classes/${classId}/entries/add`) Add
+block headerLinks
+  .actions
+    a(href="/") Home
+    a(href="/classes") Classes
+    if username === 'admin'
+      a(href="/add-class") Add Class
+    if !signedIn
+      a(href="/signin") Sign In
+  if signedIn 
+    p Signed in as #{username} 
+    form(action = `/signout` method="post")
+      input(type="submit" id="signout" value="Sign Out")

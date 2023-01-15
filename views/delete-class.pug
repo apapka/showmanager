@@ -1,0 +1,16 @@
+extends layout 
+
+block main 
+  h1 #{klass.id}. $#{klass.prize_money} #{klass.name}
+    form(action = `/classes/${klass.id}/destroy` method="post")
+      fieldset.actions 
+        input(type="submit" value="Delete Class")
+        
+block headerLinks
+  .actions
+    a(href="/") Home
+    a(href="/classes") Classes
+    a(href="/manager-home") Manager Home
+  p Signed in as #{username} 
+  form(action = `/signout` method="post")
+    input(type="submit" id="signout" value="Sign Out")

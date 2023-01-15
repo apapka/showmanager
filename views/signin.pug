@@ -1,0 +1,31 @@
+extends layout 
+
+
+block headerLinks 
+  .actions
+    a(href="/") Home
+    a(href="/classes") Classes
+  
+
+block main 
+  h1 Log In
+  form(action = `/signin` method="post")
+    dl 
+      dt 
+        label(for="username") Email Address: 
+      dd 
+        input(type="input" id="username" name="username" value=username)
+
+      dt 
+        label(for="password") Password: 
+      dd 
+        input(type="password" id="password" name="password" value=password)
+
+    
+    fieldset.actions 
+      input(type="submit" value="Sign In")
+
+  form(action=`/createaccount` method="get")
+    dl  
+      dt 
+        input(type="submit" value="Create New Account")

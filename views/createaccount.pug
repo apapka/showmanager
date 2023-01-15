@@ -1,0 +1,32 @@
+extends layout 
+
+
+block headerLinks 
+  .actions
+    a(href="/") Home
+    a(href="/classes") Classes
+    a(href="/add-scratch") Add or Scratch Entries
+  
+
+block main 
+  h1 Create Account
+  form(action = `/createaccount` method="post")
+    dl 
+      dt 
+        label(for="username") Email Address: 
+      dd 
+        input(type="input" id="username" name="username" value=username)
+
+      dt 
+        label(for="password1") Password: 
+      dd 
+        input(type="password" id="password1" name="password1" value=password1)
+
+      dt 
+        label(for="password2") Re-enter password: 
+      dd 
+        input(type="password" id ="password2" name="password2" value=password2)
+    
+    fieldset.actions 
+      input(type="submit" value="Create Account")
+  

@@ -1,0 +1,13 @@
+extends layout 
+
+block main 
+  h1 #{klass.id}. $#{klass.prize_money} #{klass.name}
+  form(action = `/classes/${klass.id}/entries/${entry.id}/destroy` method="post")
+    h2 #{entry.number} #{entry.horse_name} #{entry.rider_name}
+    fieldset.actions 
+      input(type="submit" value="Scratch")
+      
+block headerLinks
+  .actions
+    a(href="/") Home
+    a(href="/classes") Classes
